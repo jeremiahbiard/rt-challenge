@@ -1,14 +1,9 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub mod tuple;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+const EPSILON: f64 = 0.00001;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+/// Test the equivalence of two floating point numbers by comparing their difference. If the absolute value of their
+/// difference is less than EPSILON, we will consider them equal
+pub fn approximate_eq(n0: f64, n1: f64) -> bool {
+    (n0 - n1).abs() < EPSILON
 }
